@@ -1,0 +1,121 @@
+.ConversationsComponent {
+	height: 100vh;  
+	
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		border-bottom: 1px solid black;
+	}
+	
+	.container {
+		display: flex;
+		height: 100%;
+		overflow-y: scroll;
+
+		.thread-container {
+			height: 100%;
+			width: 68%;
+			align-self: flex-start;
+			padding-right: 10px;
+		
+		
+			.spacer {
+				height: 300px;
+			}
+
+			.table {
+
+					.headers {
+						display: flex;
+						flex-direction: row;
+						width: 88%;
+						height: 100%;
+						justify-content: space-between;
+						background-color: #0084ff;
+						margin: 5px;
+						padding: 5px 10px;
+						border: 1px solid black;
+
+						&:hover {
+						cursor: pointer;
+						opacity: 0.8;
+						}
+					}
+
+							button {
+								margin-left: 15px;
+
+								&:hover {
+									cursor: pointer;
+									opacity: 0.8;
+								}
+							}
+
+				.row {
+					display: flex;
+					flex-direction: row;
+					padding: 5px 10px;
+					border: 1px solid #efefef;
+					&:hover {
+						cursor: pointer;
+						opacity: 5;
+					}
+		
+					div {
+						width: 10%;
+						padding: 10px 0px 0px 5px;
+						font-size: .8em;
+						&:last-child {
+							border: none;
+						}
+					}
+				}
+			}
+		}
+
+		.new-conversation-overlay {
+			height: 100%;  
+			width: 30%;
+			align-self: flex-end;
+			border-left: 1px solid black;
+
+			.header h2 {
+					margin: 10px 0 0 10px;
+			}
+
+			.user-list {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				margin-top: 20px;
+				padding: 5px 10px;
+
+				.row {
+					display: flex;
+					flex-direction: row;
+					width: 100%;
+					padding: 5px 10px;
+					border-top: 1px solid gray;
+					border-left: 1px solid gray;
+					&:last-child {
+						border-bottom: 1px solid gray;
+					}
+					
+					&:hover {
+						cursor: pointer;
+						background-color: rgb(201, 201, 201);
+					}
+					
+					div {
+						width: 100%;
+						padding: 10px 0px 10px 5px;
+						font-size: .8em;
+						border-right: 1px solid #efefef;
+					}
+				}
+			}
+		}
+	}
+}

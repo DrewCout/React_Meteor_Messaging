@@ -1,0 +1,89 @@
+.MessagesComponent {
+	height: 100vh;  
+	
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		border-bottom: 1px solid black;
+	}
+
+	.messages-container {
+		display: flex;
+		flex-direction: column;
+    height: 80%;
+		overflow-y: scroll;
+		padding-bottom: 1em;
+				
+		.row {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			align-items: center;
+			padding: 5px 0 5px 0;
+			border-bottom: 1px solid white;
+			background-color: #a5a5a5;
+
+			.message-container {
+				display: flex;
+				flex-direction: column;
+
+				.label {
+					display: flex;
+					flex-direction: row;
+					padding-left: 3px;
+				}
+
+				.message {
+					background-color: #002c7e;
+					border-radius:28px;
+					display: inline-block;
+					color: #ffffff;
+					font-family: Arial;
+					font-size:15px;
+					margin: 10px;
+					padding: 7px 9px;
+					width: auto;
+					max-width: 75%;
+				}	
+
+				button {
+					margin-left: 1em;
+				}
+			}
+		}
+	}
+
+	.send-message-container {
+		display: flex;
+		flex-direction: row;
+		align-self: flex-end;
+		height: fit-content;
+		width: 100%;
+		justify-content: space-between;
+		margin-top: 1em;
+
+		Img {
+			opacity: 0.25;
+			height: 35px;
+			width: auto;
+		
+			&:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+
+		input {
+			width: 85%;
+		}
+
+		button {
+			
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}

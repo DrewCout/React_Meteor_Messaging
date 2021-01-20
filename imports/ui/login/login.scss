@@ -1,0 +1,41 @@
+.Login {
+	min-height: 100vh;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+
+	.box {
+		height: 25%;
+		width: 25%;
+		background: #fff;
+		padding: 50px;
+		border-radius: 10px;
+		position: relative;
+		text-align: center;
+
+		h1 {
+			margin-bottom: 20px;
+		}
+		
+		.form {
+			display: flex;
+			flex-direction: column;
+			label {
+				margin-bottom: 10px;
+			}
+			input {
+				margin-bottom: 20px;
+			}
+
+			.button {
+
+				button {
+					margin: 0 0 20px 0;
+					width: 40%;
+				}
+			}
+		}
+	}
+}
+
+
