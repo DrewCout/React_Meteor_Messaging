@@ -12,6 +12,7 @@ export const AdminComponent = () => {
 	const loadingUsers = useSubscription('All_Users_Username')
 
 	const [userToDelete, setUserToDelete] = useState(null)
+	const [userExists, setUserExists] = useState(false)
 
 	useEffect(() => {
 		if (!loadingUsers && Meteor.userId) {
@@ -21,8 +22,8 @@ export const AdminComponent = () => {
 	handleDeleteUser = (userId) => {
 		Meteor.call('Delete_User', userId, (error, result) => {
 			if (error) {
-				alert(error)
-			} else {
+				alert('User not found')
+			} else if (result) {
 				alert('User Deleted!')
 			}
 		})

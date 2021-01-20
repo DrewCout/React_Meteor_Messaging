@@ -53,18 +53,39 @@ Meteor.methods({
 		Accounts.setPassword(data.userId, data.newPassword)
 	},
 
-	Delete_User: function(userId) {
-		if(this.userId) {
-			enforceRoles(['ADMIN'])
+	Does_User_Exist: function(userId) {
+		check({ userId: String })
+    return Meteor.users.find({_id: userId}) != null
+  },
 
-			const rolesArray = Roles.getRolesForUser(Meteor.userId())
-			
-			if (rolesArray[0] === 'ADMIN') {
-				Meteor.users.remove({ _id: userId, })
-			} else {
-			throw new Meteor.Error('Error')
+	Delete_User: function(userId) {
+		const checkUserExists = () => {
+			const userExists = Meteor.users.find({_id: userId}) != null
+			return userExists
+		}
+
+		const deleteUser = (userExists, userId) => {
+			if(this.userId) {
+				enforceRoles(['ADMIN'])
+
+				const rolesArray = Roles.getRolesForUser(Meteor.userId())
+				
+				if (rolesArray[0] !== 'ADMIN') {
+					throw new Meteor.Error('User not authorized')
+				} else {
+					if (userExists) {
+						Meteor.users.remove({ _id: userId })
+					}
+				}
 			}
 		}
-	}	
+
+		const run = async () => {
+			let userExists = checkUserExists()
+			deleteUser(userExists, userId)
+		}
+
+		return run()
+	}
 
 })

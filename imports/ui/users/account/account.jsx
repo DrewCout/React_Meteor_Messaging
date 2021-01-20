@@ -7,16 +7,18 @@ export const AccountComponent = () => {
 
 	const history = useHistory()
 
+	const loading = useSubscription('All_Users_Username')
+
 	const [newUsername, setNewUsername] = useState(null)
 	const [newPassword, setNewPassword] = useState(null)
 	const [currentUsername, setCurrentUsername] = useState(null)
 
 	useEffect(() => {
-		if(Meteor.userId) {
+		if(!loading && Meteor.userId) {
 			usernameQuery = Meteor.user({fields: {username: 1}})
 			setCurrentUsername(Meteor.user().username)
 		}
-	}, [Meteor.user]);
+	}, [loading]);
 
 	handleUpdateUsername = () => {
 		data = { userId: Meteor.userId(), newUsername: newUsername }
